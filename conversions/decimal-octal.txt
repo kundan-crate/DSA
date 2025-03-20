@@ -1,0 +1,7 @@
+f = 14
+g = ''
+while f > 0:
+    s = f % 8    
+    f = f // 8   
+    g += str(s) 
+print(g[::-1])   
