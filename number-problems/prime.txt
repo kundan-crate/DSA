@@ -1,0 +1,49 @@
+Step 1: Check if a single number is prime
+
+	Input: Read an integer num from the user.
+	Check if num is prime:
+	If num is less than 2, it is not prime.
+	Otherwise, iterate from 2 to num - 1 and check if num is divisible by any number in this range.
+	If num is divisible by any number, it is not prime; otherwise, it is prime.
+
+Output: Print whether num is a prime number or not.
+
+Step 2: Find all prime numbers in a given range
+
+	Input: Read two integers start and end from the user.
+	Iterate through all numbers from start to end:
+	For each number in this range, check if it is prime using the same logic as in Step 1.
+	If the number is prime, add it to a list.
+
+Output: Print the list of prime numbers in the given range.
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):  
+        if n % i == 0:
+            return False
+    return True
+
+def primes_in_range(start, end):
+    primes = []  
+    for num in range(start, end + 1): 
+        if is_prime(num):  
+            primes.append(num) 
+    return primes
+
+# Step 1: Check if a single number is prime
+num = int(input("Enter a number to check if it's prime: "))
+if is_prime(num):
+    print(f"{num} is a prime number.")
+else:
+    print(f"{num} is not a prime number.")
+
+# Step 2: Find all prime numbers in a range
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+
+primes = primes_in_range(start, end)
+
+print(f"Prime numbers between {start} and {end}: {primes}")
